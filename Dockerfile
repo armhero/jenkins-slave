@@ -22,7 +22,7 @@ RUN apt-get update \
 
 RUN wget -O /usr/local/bin/swarm-client.jar https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client/2.2/swarm-client-2.2-jar-with-dependencies.jar
 
-RUN useradd -m -d /home/jenkins -s /bin/sh jenkins
+RUN adduser --shell /bin/sh --disabled-password jenkins
 
 COPY root /
 RUN chmod +x /usr/local/bin/run-container.sh

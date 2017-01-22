@@ -1,5 +1,7 @@
 #!/bin/bash
 
+chown -R jenkins:jenkins /home/jenkins
+
 exec su --preserve-environment -c "/usr/bin/java -jar \
   /usr/local/bin/swarm-client.jar \
   -master ${JENKINS_MASTER} \
