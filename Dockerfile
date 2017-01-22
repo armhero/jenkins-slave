@@ -18,6 +18,7 @@ RUN apt-get update \
   ca-certificates \
   git \
   openjdk-8-jre-headless \
+  ssh \
   wget \
   && apt-get clean
 
