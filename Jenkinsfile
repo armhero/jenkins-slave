@@ -6,8 +6,7 @@ node('rpi3') {
   }
 
   stage('Build') {
-    sh 'env'
-    sh 'docker build -t armhero/jenkins-slave:${BRANCH} .'
+    sh 'docker build -t armhero/jenkins-slave:${BRANCH_NAME} .'
   }
 
   stage('Push') {
@@ -19,17 +18,17 @@ node('rpi3') {
       sh '''
         docker login -u \044{DOCKER_USERNAME} -p \044{DOCKER_PASSWORD}
 
-        if [ "$BRANCH" == "master" ]; then
+        if [ "${BRANCH_NAME}" == "master" ]; then
           # when we are in the master branch, then set a new tag
           docker tag armhero/jenkins-slave:${BRANCH} armhero/jenkins-slave:latest
 
           docker push armhero/jenkins-slave:latest
           docker rmi armhero/jenkins-slave:latest
         else
-          docker push armhero/jenkins-slave:${BRANCH}
+          docker push armhero/jenkins-slave:${BRANCH_NAME}
         fi
 
-        docker rmi armhero/jenkins-slave:${BRANCH}
+        docker rmi armhero/jenkins-slave:${BRANCH_NAME}
       '''
     }
   }
