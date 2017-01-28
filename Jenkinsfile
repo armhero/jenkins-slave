@@ -6,6 +6,7 @@ node('rpi3') {
   }
 
   stage('Build') {
+    sh 'env'
     sh 'docker build -t armhero/jenkins-slave:${BRANCH} .'
   }
 
