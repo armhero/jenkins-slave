@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM armhero/debian:jessie
 
 ENV TINI_VERSION=v0.13.2 \
   JENKINS_MASTER=https://example.org \
