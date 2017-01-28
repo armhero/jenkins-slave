@@ -6,7 +6,7 @@ ENV TINI_VERSION=v0.13.2 \
   JENKINS_PASSWORD=jenkins \
   JENKINS_EXECUTORS=1
 
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/local/bin/tini
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-armhf /usr/local/bin/tini
 RUN chmod +x /usr/local/bin/tini
 ENTRYPOINT ["/usr/local/bin/tini", "--"]
 
