@@ -8,8 +8,6 @@ ENV TINI_VERSION=v0.13.2 \
   JENKINS_LABELS=docker \
   JENKINS_NAME=example-slave
 
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-armhf /usr/local/bin/tini
-
 RUN chmod +x /usr/local/bin/tini \
   && apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
@@ -29,8 +27,6 @@ RUN chmod +x /usr/local/bin/tini \
 COPY root /
 
 RUN chmod +x /usr/local/bin/run-container.sh
-
-ENTRYPOINT ["/usr/local/bin/tini", "--"]
 
 VOLUME ["/home/jenkins"]
 
