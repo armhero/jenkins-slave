@@ -8,5 +8,6 @@ exec su --preserve-environment -c "/usr/bin/java -jar \
   -username ${JENKINS_USERNAME} \
   -passwordEnvVariable JENKINS_PASSWORD \
   -executors ${JENKINS_EXECUTORS} \
+  -labels "${JENKINS_LABELS}"
   -fsroot /home/jenkins" \
   jenkins
