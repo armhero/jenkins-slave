@@ -26,8 +26,7 @@ RUN chmod +x /usr/local/bin/tini \
   && curl -sSL https://get.docker.com/ | sh \
   && apt-get clean \
   && wget -O /usr/local/bin/swarm-client.jar https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client/2.2/swarm-client-2.2-jar-with-dependencies.jar \
-  && adduser --shell /bin/sh --disabled-password jenkins \
-  && adduser jenkins docker
+  && adduser --shell /bin/sh --disabled-password jenkins
 
 COPY root /
 
