@@ -11,15 +11,13 @@ ENV TINI_VERSION=v0.13.2 \
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-armhf /usr/local/bin/tini
 
 RUN chmod +x /usr/local/bin/tini \
-  && touch /etc/apt/sources.list.d/debian-backports.list \
-  && echo "deb http://ftp.ch.debian.org/debian jessie-backports main" | tee /etc/apt/sources.list.d/debian-backports.list \
   && apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
   ca-certificates \
   curl \
   debootstrap \
   git \
-  openjdk-8-jre-headless \
+  openjdk-7-jre-headless \
   openssh-client \
   sudo \
   wget \
