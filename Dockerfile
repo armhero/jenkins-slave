@@ -8,8 +8,7 @@ ENV TINI_VERSION=v0.13.2 \
   JENKINS_LABELS=docker \
   JENKINS_NAME=example-slave
 
-RUN chmod +x /usr/local/bin/tini \
-  && apt-get update \
+RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
   ca-certificates \
   curl \
