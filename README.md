@@ -10,3 +10,13 @@ The Jenkins slave used to generate ARMhero images. It uses the swarm plugin to c
 * **Debootstrap**
 * **Docker** (For controlling the docker daemon on the host)
 * **OpenJDK 8**
+
+## Usage
+
+You need to have the swarm plugin installed. Then you can run the slave like this:
+```
+docker run -v /var/run/docker.sock:/var/run/docker.sock \
+  -e JENKINS_MASTER=https://your-jenkins.example.com \
+  -e JENKINS_USERNAME=your_jenkins_user \
+  -e JENKINS_PASSWORD=your_jenkins_password
+```
