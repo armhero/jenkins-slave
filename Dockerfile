@@ -16,9 +16,10 @@ RUN touch /etc/apt/sources.list.d/debian-backports.list \
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
   ca-certificates \
+  debootstrap \
   git \
   openjdk-8-jre-headless \
-  ssh \
+  openssh-client \
   wget \
   && apt-get clean
 
