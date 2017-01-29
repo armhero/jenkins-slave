@@ -5,7 +5,8 @@ ENV TINI_VERSION=v0.13.2 \
   JENKINS_USERNAME=jenkins \
   JENKINS_PASSWORD=jenkins \
   JENKINS_EXECUTORS=1 \
-  JENKINS_LABELS=docker
+  JENKINS_LABELS=docker \
+  JENKINS_NAME=example-slave
 
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-armhf /usr/local/bin/tini
 
