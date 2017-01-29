@@ -1,4 +1,4 @@
-FROM armhero/debian:jessie
+FROM armhero/raspbian:jessie
 
 ENV TINI_VERSION=v0.13.2 \
   JENKINS_MASTER=https://example.org \
@@ -18,8 +18,6 @@ RUN chmod +x /usr/local/bin/tini \
   ca-certificates \
   curl \
   debootstrap \
-  fakeroot \
-  fakechroot \
   git \
   openjdk-8-jre-headless \
   openssh-client \
