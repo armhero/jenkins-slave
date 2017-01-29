@@ -1,12 +1,12 @@
 #!groovy
 
-node('rpi3') {
+node('armhf') {
   stage('Checkout') {
     checkout scm
   }
 
   stage('Build') {
-    sh 'docker build -t armhero/jenkins-slave:\044{BRANCH_NAME} .'
+    sh 'sudo docker build -t armhero/jenkins-slave:\044{BRANCH_NAME} .'
   }
 
   stage('Push') {
@@ -16,15 +16,15 @@ node('rpi3') {
       usernameVariable: 'DOCKER_USERNAME')
     ]) {
       sh '''#!/bin/bash -xe
-        docker login -u \044{DOCKER_USERNAME} -p \044{DOCKER_PASSWORD}
+        sudo docker login -u \044{DOCKER_USERNAME} -p \044{DOCKER_PASSWORD}
 
         if [[ "\044{BRANCH_NAME}" == "master" ]]; then
           # when we are in the master branch, then set a new tag
-          docker tag armhero/jenkins-slave:\044{BRANCH_NAME} armhero/jenkins-slave:latest
+          sudo docker tag armhero/jenkins-slave:\044{BRANCH_NAME} armhero/jenkins-slave:latest
 
-          docker push armhero/jenkins-slave:latest
+          sudo docker push armhero/jenkins-slave:latest
         else
-          docker push armhero/jenkins-slave:${BRANCH_NAME}
+          sudo docker push armhero/jenkins-slave:${BRANCH_NAME}
         fi
 
         # update badges

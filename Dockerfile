@@ -18,6 +18,8 @@ RUN chmod +x /usr/local/bin/tini \
   ca-certificates \
   curl \
   debootstrap \
+  fakeroot \
+  fakechroot \
   git \
   openjdk-8-jre-headless \
   openssh-client \
