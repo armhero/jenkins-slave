@@ -16,6 +16,7 @@ RUN chmod +x /usr/local/bin/tini \
   && apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
   ca-certificates \
+  curl \
   debootstrap \
   git \
   openjdk-8-jre-headless \
