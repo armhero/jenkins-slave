@@ -23,12 +23,9 @@ node('rpi3') {
           docker tag armhero/jenkins-slave:\044{BRANCH_NAME} armhero/jenkins-slave:latest
 
           docker push armhero/jenkins-slave:latest
-          docker rmi armhero/jenkins-slave:latest
         else
           docker push armhero/jenkins-slave:${BRANCH_NAME}
         fi
-
-        docker rmi armhero/jenkins-slave:${BRANCH_NAME} || true
 
         # update badges
         curl -X POST https://hooks.microbadger.com/images/armhero/jenkins-slave/3dhbMdncwMdmcxkk8q3UH0FCLl4=
