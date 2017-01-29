@@ -15,7 +15,7 @@ node('rpi3') {
       passwordVariable: 'DOCKER_PASSWORD',
       usernameVariable: 'DOCKER_USERNAME')
     ]) {
-      sh '''#!/bin/bash
+      sh '''#!/bin/bash -xe
         docker login -u \044{DOCKER_USERNAME} -p \044{DOCKER_PASSWORD}
 
         if [[ "\044{BRANCH_NAME}" == "master" ]]; then
