@@ -18,7 +18,7 @@ node('rpi3') {
       sh '''
         docker login -u \044{DOCKER_USERNAME} -p \044{DOCKER_PASSWORD}
 
-        if [ "\044{BRANCH_NAME}" == "master" ]; then
+        if [[ "\044{BRANCH_NAME}" == "master" ]]; then
           # when we are in the master branch, then set a new tag
           docker tag armhero/jenkins-slave:\044{BRANCH_NAME} armhero/jenkins-slave:latest
 
