@@ -17,7 +17,8 @@ RUN apt-get update \
   openssh-client \
   sudo \
   wget \
-  && wget https://packagecloud.io/Hypriot/Schatzkiste/packages/debian/wheezy/docker-hypriot_1.10.3-1_armhf.deb -O /tmp/docker.deb \
+  && curl -s https://packagecloud.io/install/repositories/Hypriot/Schatzkiste/script.deb.sh | sudo bash \
+  && DEBIAN_FRONTEND=noninteractive apt-get install docker-hypriot \
   && dpkg -i /tmp/docker.deb \
   && apt-get clean \
   && wget -O /usr/local/bin/swarm-client.jar https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client/2.2/swarm-client-2.2-jar-with-dependencies.jar \
