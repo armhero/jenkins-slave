@@ -32,4 +32,11 @@ node('armhf') {
       '''
     }
   }
+
+  stage('Deploy') {
+    build 'docker.deployment.bananapi', wait: false
+    build 'docker.deployment.cubieboard2', wait: false
+    build 'docker.deployment.hypriot1', wait: false
+    build 'docker.deployment.hypriot2', wait: false
+  }
 }
