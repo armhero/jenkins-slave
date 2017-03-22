@@ -23,12 +23,13 @@ RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y docker-hypriot \
   && apt-get clean \
   && wget -O /usr/local/bin/swarm-client.jar https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client/${SWARM_CLIENT_VERSION}/swarm-client-${SWARM_CLIENT_VERSION}.jar \
-  && adduser --shell /bin/sh --disabled-password jenkins \
-  && dpkg-reconfigure locales \
-  && locale-gen C.UTF-8 \
-  && /usr/sbin/update-locale LANG=C.UTF-8
+  && useradd -m -s /bin/sh jenkins \
+  && sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
+  && dpkg-reconfigure --frontend=noninteractive locales \
+  && locale-gen en_US.UTF-8 \
+  && /usr/sbin/update-locale LANG=en_US.UTF-8
 
-ENV LC_ALL C.UTF-8
+ENV LC_ALL en_US.UTF-8
 
 COPY root /
 
