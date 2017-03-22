@@ -12,12 +12,13 @@ ENV SWARM_CLIENT_VERSION=3.3 \
   LANGUAGE=en_US.UTF-8
 
 RUN apt-get update \
+  && DEBIAN_FRONTEND=noninteractive apt-get install -y locales \
+  && locale-gen \
   && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
   ca-certificates \
   curl \
   debootstrap \
   git \
-  locales \
   openjdk-7-jre-headless \
   openssh-client \
   sudo \
