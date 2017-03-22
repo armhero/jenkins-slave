@@ -6,7 +6,10 @@ ENV SWARM_CLIENT_VERSION=3.3 \
   JENKINS_PASSWORD=jenkins \
   JENKINS_EXECUTORS=1 \
   JENKINS_LABELS=docker \
-  JENKINS_NAME=example-slave
+  JENKINS_NAME=example-slave \
+  LC_ALL=en_US.UTF-8 \
+  LANG=en_US.UTF-8 \
+  LANGUAGE=en_US.UTF-8
 
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
@@ -14,6 +17,7 @@ RUN apt-get update \
   curl \
   debootstrap \
   git \
+  locales \
   openjdk-7-jre-headless \
   openssh-client \
   sudo \
