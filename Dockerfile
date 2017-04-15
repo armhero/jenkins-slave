@@ -1,6 +1,6 @@
 FROM armhero/raspbian:jessie
 
-ENV SWARM_CLIENT_VERSION=3.3 \
+ENV SWARM_CLIENT_VERSION=3.4 \
   JENKINS_MASTER=https://example.org \
   JENKINS_USERNAME=jenkins \
   JENKINS_PASSWORD=jenkins \
