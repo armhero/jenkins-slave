@@ -15,7 +15,7 @@ RUN apt-get update \
   debootstrap \
   git \
   locales \
-  openjdk-7-jre-headless \
+  openjdk-8-jre-headless \
   openssh-client \
   sudo \
   wget \
